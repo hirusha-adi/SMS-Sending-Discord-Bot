@@ -10,20 +10,9 @@ main = os.path.join(
     "main.json"
 )
 
-blacklisted_users = os.path.join(
-    _database,
-    "data",
-    "blacklisted_users.txt"
-)
 
-blacklisted_guilds = os.path.join(
+telnyx = os.path.join(
     _database,
     "data",
-    "blacklisted_guilds.txt"
-)
-
-blacklisted_channels = os.path.join(
-    _database,
-    "data",
-    "blacklisted_channels.txt"
+    "telnyx.json"
 )
