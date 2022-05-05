@@ -1,14 +1,41 @@
-# Discord-Bot-Template
+# SMS Sending Discord Bot
 
-Create a starter template for a discord bot easily
+Send SMS to any supported number using Telnyx easily within discord
 
-# Just clone the Repo and start coding!
+# Usage
 
-# Features -
+## 1. Install dependencies
 
-1. Cog support
-2. Cog management commands
-3. blacklist users, channels, guilds from using the bot
-4. manage errors raised by discord.py
-5. store main information in JSON files
-6. seperate files to manage JSON files
+### Windows
+```
+py -m pip install -r requirements.txt
+```
+
+### Other
+```
+python3 -m pip install -r requirements.txt
+```
+
+## 1. Fill Required Information 
+
+### Windows
+```
+py -m pip install -r requirements.txt
+```
+
+### Other
+```
+python3 -m pip install -r requirements.txt
+```
+
+## 3. Start Discord Bot
+
+### Windows
+```
+py main.py
+```
+
+### Other
+```
+python3 main.py
+```
