@@ -2,7 +2,7 @@
 
 Send SMS to any supported number using Telnyx easily within discord
 
-# Usage
+# Setup
 
 ## 1. Install dependencies
 
@@ -16,16 +16,20 @@ py -m pip install -r requirements.txt
 python3 -m pip install -r requirements.txt
 ```
 
-## 1. Fill Required Information 
+## 2. Fill Required Information 
+
+Fill in the information, save and exit
 
 ### Windows
 ```
-py -m pip install -r requirements.txt
+notepad .\bot\database\data\main.json
+notepad .\bot\database\data\telnyx.json
 ```
 
 ### Other
 ```
-python3 -m pip install -r requirements.txt
+nano ./bot/database/data/main.json
+nano ./bot/database/data/telnyx.json
 ```
 
 ## 3. Start Discord Bot
@@ -38,4 +42,14 @@ py main.py
 ### Other
 ```
 python3 main.py
+```
+
+# Usage
+
+```
+Usage -->
+  >sms <to_number> *[text]
+
+Example -->
+  >sms +12345678910 any text that comes after the phone number to be sent will be the content of the message
 ```
