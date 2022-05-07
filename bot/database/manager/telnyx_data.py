@@ -7,3 +7,4 @@ with open(database.telnyx, "r", encoding="utf-8") as _file:
 
 api_key = data['api_key']
 from_number = data['from_number']
+
