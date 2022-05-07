@@ -29,14 +29,22 @@ class SendSMS(commands.Cog, description="Send messages"):
 
         text = " ".join(text)
 
-        telnyx.Message.create(
-            from_=telnyx_data.from_number,
-            to=str(number),
-            text=text
-        )
+        try:
+            telnyx.Message.create(
+                from_=telnyx_data.from_number,
+                to=str(number),
+                text=text
+            )
+        except Exception as _err:
+            embed = discord.Embed(title="Send SMS",
+                                  timestamp=datetime.utcnow(),
+                                  description=f"```{_err}```",
+                                  color=0x00ffff)
+            embed.set_footer(text=f"Requested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+            return
 
-        embed = discord.Embed(title="Bot Management",
-                              description="Change Phone Number",
+        embed = discord.Embed(title="Send SMS",
                               timestamp=datetime.utcnow(),
                               color=0x00ffff)
         embed.set_author(
@@ -44,19 +52,27 @@ class SendSMS(commands.Cog, description="Send messages"):
             icon_url=str(self.client.user.avatar_url)
         )
         embed.add_field(
-            name="Old Phone Number",
-            value=str(telnyx_data.from_number),
+            name="From",
+            value=f"{telnyx_data.from_number}",
             inline=False
         )
         embed.add_field(
-            name="New Phone Number",
-            value=str(telnyx_data.from_number),
+            name="To",
+            value=f"{number}",
+            inline=False
+        )
+        embed.add_field(
+            name="By",
+            value=f"{ctx.author.name}",
+            inline=False
+        )
+        embed.add_field(
+            name="Content",
+            value=f"{text}",
             inline=False
         )
         embed.set_footer(text=f"Requested by {ctx.author.name}")
         await ctx.send(embed=embed)
-
-        await ctx.send(f"Sent SMS:\nFrom: {telnyx_data.from_number}\nTo: {number}\nBy {ctx.author.name}\nContent: ``` {text} ```")
 
 
 def setup(client: commands.Bot):
