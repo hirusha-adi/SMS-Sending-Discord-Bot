@@ -6,7 +6,7 @@ from bot.database.manager import main
 from bot.database.manager import telnyx_data
 
 
-class OnMessage(commands.Cog, description="Handle the messages sent"):
+class SendSMS(commands.Cog, description="Send messages"):
 
     def __init__(self, client: commands.Bot):
         self.client = client
@@ -20,14 +20,14 @@ class OnMessage(commands.Cog, description="Handle the messages sent"):
         text  = " ".join(text)
 
         telnyx.Message.create(
-            _from=telnyx_data.from_number,
+            from_=telnyx_data.from_number,
             to=str(number),
             text=text
         )
 
-        await ctx.send(f"Send SMS:\nFrom: {telnyx_data.from_number}\nTo: {number}\nBy {ctx.author.name}\nContent: ``` {text} ```")
+        await ctx.send(f"Sent SMS:\nFrom: {telnyx_data.from_number}\nTo: {number}\nBy {ctx.author.name}\nContent: ``` {text} ```")
 
 
 
 def setup(client: commands.Bot):
-    client.add_cog(OnMessage(client))
+    client.add_cog(SendSMS(client))
