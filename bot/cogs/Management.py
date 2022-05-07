@@ -14,6 +14,15 @@ class Management(commands.Cog, description="Manage Discord Bot. Only admins can 
 
     @commands.command()
     async def change_number(self, ctx, number):
+        """
+        Usage -->
+            >change_number <number>
+
+        Example -->
+            >change_number 1234567890
+
+        ONLY ADMINS CAN USE THIS COMMAND
+        """
         if int(ctx.author.id) in main.admins:
             embed = discord.Embed(title="Bot Management",
                                   description="Change Phone Number",
@@ -60,6 +69,15 @@ class Management(commands.Cog, description="Manage Discord Bot. Only admins can 
 
     @commands.command()
     async def change_api_key(self, ctx, api_key):
+        """
+        Usage -->
+            >change_number <api_key>
+
+        Example -->
+            >change_number VerySecretAPIKeyDoNotShare
+
+        ONLY ADMINS CAN USE THIS COMMAND
+        """
         if int(ctx.author.id) in main.admins:
             embed = discord.Embed(title="Bot Management",
                                   description="Change Telnyx API Key",
