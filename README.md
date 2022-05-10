@@ -72,8 +72,8 @@ Example -->
 
 ```
 Usage -->
-    >change_number <api_key>
+    >change_api_key <api_key>
 
 Example -->
-    >change_number VerySecretAPIKeyDoNotShare
+    >change_api_key VerySecretAPIKeyDoNotShare
 ```
