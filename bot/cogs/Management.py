@@ -71,10 +71,10 @@ class Management(commands.Cog, description="Manage Discord Bot. Only admins can 
     async def change_api_key(self, ctx, api_key):
         """
         Usage -->
-            >change_number <api_key>
+            >change_api_key <api_key>
 
         Example -->
-            >change_number VerySecretAPIKeyDoNotShare
+            >change_api_key VerySecretAPIKeyDoNotShare
 
         ONLY ADMINS CAN USE THIS COMMAND
         """
